@@ -1,0 +1,36 @@
+
+main {
+  min-height: 80vh;
+}
+
+ul
+{
+  list-style: none;
+}
+.rating span {
+  margin: 0.1rem;
+}
+
+body
+{
+  overflow-x: hidden;
+ font-family: 'Raleway', sans-serif;
+}
+
+  
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  /*my color*/
+  --black: #1c1a1b;
+  
+  --gold: #cd983c;
+  /*--gold: #f3c54d;*/
+  --gray: #655b50;
+  --white: #fff;
+}
+
