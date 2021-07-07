@@ -119,6 +119,7 @@ const LoginScreen = ({location, history}) => {
                         callback={responseFacebook}
                         icon={<i className="fab fa-facebook-f icone"></i>}
                         textButton="continuer avec facebook"
+                        disableMobileRedirect={true}
                     />
 
                     <GoogleLogin className='mybtn'
