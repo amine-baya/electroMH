@@ -6,6 +6,7 @@ import {Navbar, Nav,Container, NavDropdown} from 'react-bootstrap'
 import SearchBox from '../SearchBox'
 import  './header.css'
 import { logout } from '../../actions/userActions';
+import logo_header from '../../img/logo_header.png'
 
 const Header = ({history}) => {
 
@@ -32,7 +33,7 @@ const Header = ({history}) => {
             <Navbar  expand="lg" collapseOnSelect >
                 
                     <LinkContainer to="/">
-                        <span className="logo">ElectroMH</span>
+                            <span className="logo"> <img src={logo_header} className="header_logo"></img> </span>
                     </LinkContainer>
  
                         <Route render={({ history }) => <SearchBox history={history} dir={'search'} className={'d-none d-md-block'} />} />

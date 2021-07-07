@@ -123,7 +123,7 @@
 }
 .single-product-button:hover:after
 {
-    transform: translateX(300px) skew(-30deg);
+    transform: translateX(350px) skew(-30deg);
 } 
 
 

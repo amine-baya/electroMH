@@ -110,8 +110,10 @@ const LoginScreen = ({location, history}) => {
                 <span className='or'>ou</span>
                 <div className='authen'>
                     <FacebookLogin
+                        
                         appId="2573148416324666"
                         autoLoad={false}
+                        isMobile={true}
                         fields="name,email,picture"
                         onClick={componentClicked}
                         callback={responseFacebook}
