@@ -235,7 +235,7 @@ const HomeScreen = ({ match, history }) => {
     
   return (
     <>
-      <Meta />
+      <Meta /> 
         
           <div className="part1">
                  

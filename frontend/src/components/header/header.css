@@ -21,7 +21,6 @@ header span.logo
 .header_logo{
   width: 200px;
   height: 80px;
-
 }
 
 header span.logo:hover
@@ -156,6 +155,12 @@ font-size: 18px;
 /* --------------------media --------------- */
 
 @media (max-width:575px ) {
+  
+.header_logo{
+  width: 100px;
+  height: 80px;
+}
+
 .navbar-nav
   {
     flex-direction: row;

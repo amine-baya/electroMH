@@ -135,6 +135,7 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    z-index: 10;
 }
 
 .SocialMedia .facebook_logo, .SocialMedia .instagram_logo
