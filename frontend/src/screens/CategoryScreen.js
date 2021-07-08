@@ -81,7 +81,7 @@ const CategoryListScreen = () => {
 
             }
 
-        setshow(true)
+        setshow(true) 
 
     }
     const createCategorys = (bool) => {

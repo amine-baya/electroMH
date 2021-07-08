@@ -241,12 +241,24 @@ const HomeScreen = ({ match, history }) => {
                  
 
             <div className=" part1-one-1"> <ProductCarousel className="carousell" /> </div>
-            <div className="home_part part1-one-2">  <Image src={img1} alt="image" className="iia" ></Image> </div>
-            <div className="home_part part1-one-3">  <Image src={img2} alt="image" className="iia" ></Image> </div>
-            <div className="home_part part1-one-4">  <Image src={img3} alt="image" className="iia" ></Image> </div>
-            <div className="home_part part1-one-5">  <Image src={img1} alt="image" className="iia" ></Image> </div>
-            <div className="home_part part1-one-6">  <Image src={img1} alt="image" className="iia" ></Image> </div>
-            <div className="home_part part1-one-7">  <Image src={img1} alt="image" className="iia" ></Image> </div>
+           
+            <div className="home_part part1-one-2">  <Link to='product/category/two'> <Image src={img1} alt="image" className="iia" ></Image></Link> </div>
+            
+             
+               <div className="home_part part1-one-3">  <Link to='product/category/five'> <Image src={img2} alt="image" className="iia" ></Image></Link> </div>
+              
+               
+               <div className="home_part part1-one-4"> <Link to='product/category/zrabi'> <Image src={img3} alt="image" className="iia" ></Image> </Link></div>
+               
+               
+               <div className="home_part part1-one-5">  <Link to='product/category/two'><Image src={img1} alt="image" className="iia" ></Image> </Link> </div>
+              
+               
+               <div className="home_part part1-one-6"> <Link to='product/category/two'> <Image src={img1} alt="image" className="iia" ></Image> </Link></div>
+               
+              
+               <div className="home_part part1-one-7"> <Link to='product/category/two'> <Image src={img1} alt="image" className="iia" ></Image></Link> </div>
+              
 
 
           </div>

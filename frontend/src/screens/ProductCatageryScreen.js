@@ -27,7 +27,7 @@ const ProductcategoryScreen = ({match, history}) => {
         dispatch(category(match.params.category, pageNumber))
     }, [match, dispatch])
 
-    const sortArray = [{ id: 0, name: "nouveaux" }, { id: 1, name: "Nom, A à Z" }, { id: 2, name: "Nom, Z à A" }, { id: 3, name: "byPriceA" },  { id: 4, name: "byPriceB" }   ]
+    const sortArray = [{ id: 0, name: "nouveaux" }, { id: 1, name: "Nom, A à Z" }, { id: 2, name: "Nom, Z à A" }, { id: 3, name: "Prix, croissant" }, { id: 4, name: "Prix, décroissant" }  ]
 
     if (sorted === "nouveaux") {
         window.location.reload()  
