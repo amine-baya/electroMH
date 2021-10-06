@@ -7,7 +7,7 @@ import productRoutes from'./routers/productRoutes.js';
 import userRoutes from'./routers/userRoutes.js';
 import orderRoutes from'./routers/orderRoutes.js';
 import categoryRoutes from './routers/categoryRoutes.js';
-import uploadRoutes from'./routers/uploadRoutes.js';  
+import uploadRoutes from'./routers/uploadRoutes.js';   
 
 
 import morgan from 'morgan'
@@ -59,6 +59,6 @@ app.use(NotFound)
  
 app.use(errorHandler)
 
-const PORT = process.env.PORT || 4000 
+const PORT = process.env.PORT || 5000 
 
 app.listen(PORT, console.log(`server runing in ${process.env.NODE_ENV} mode on port ${process.env.PORT}`))

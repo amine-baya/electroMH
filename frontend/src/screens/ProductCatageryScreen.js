@@ -95,7 +95,7 @@ const ProductcategoryScreen = ({match, history}) => {
             ) : error ? (
                 <Message variant='danger'>{error}</Message>
             ) : (
-                <>
+                <> 
                     <div className={grid}>
                         {products.map((product) => (
                             <div key={product._id} >

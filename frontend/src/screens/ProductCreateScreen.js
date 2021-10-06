@@ -69,16 +69,19 @@ const ProductCreateScreen = (props) => {
       
     }
     
-    setUploading(true)
+    console.log(file);
+    setUploading(true) 
 
     try {
       const config = {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'multipart/form-data'
+        
+                
         },
       }
 
-      const { data } = await axios.post('/api/upload/two', formData, config)
+      const { data } = await axios.post('/api/upload/', formData, config)
 
       setImage(data.split(','))
 
@@ -90,7 +93,7 @@ const ProductCreateScreen = (props) => {
   }
  
 
-  const submitHandler = (e) => {
+  const submitHandler = (e) => { 
     e.preventDefault()
 
 
@@ -99,7 +102,7 @@ const ProductCreateScreen = (props) => {
 
     dispatch(
       createProduct({
-        name,
+        name, 
         remise,
         price,
         image,

@@ -8,7 +8,7 @@ const SearchBox = (props) => {
     e.preventDefault()
     if (keyword.trim()) {
       props.history.push(`/${props.dir}/${keyword}`)    
-    } else {
+    } else { 
       props.history.push( `/${props.noResult}` )
     }
   }

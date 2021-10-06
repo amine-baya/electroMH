@@ -13,9 +13,12 @@ import { createAvis } from '../actions/userActions'
 import Rating from '../components/Rating'
 import MessengerCustomerChat from 'react-messenger-customer-chat'
 import 'swiper/swiper-bundle.css';
-import  img1 from '../img/ex1.jpg'
-import img2 from '../img/ex2.jpg'
-import img3 from '../img/ex3.jpg'
+import img1 from  '../img/ex1.jpg'
+import img2 from  '../img/ex2.jpg'
+import img3 from  '../img/ex3.jpg'
+import img4 from  '../img/ex4.jpg'
+import img5 from  '../img/ex4.jpg'
+import img6 from  '../img/ex4.jpg'
 
 import HomeScreenCategory from '../components/HomeScreenCategory.js'
 import SwiperCore, { Navigation, Pagination, } from 'swiper';
@@ -251,13 +254,13 @@ const HomeScreen = ({ match, history }) => {
                <div className="home_part part1-one-4"> <Link to='product/category/zrabi'> <Image src={img3} alt="image" className="iia" ></Image> </Link></div>
                
                
-               <div className="home_part part1-one-5">  <Link to='product/category/two'><Image src={img1} alt="image" className="iia" ></Image> </Link> </div>
+               <div className="home_part part1-one-5">  <Link to='product/category/two'><Image src={img4} alt="image" className="iia" ></Image> </Link> </div>
               
                
-               <div className="home_part part1-one-6"> <Link to='product/category/two'> <Image src={img1} alt="image" className="iia" ></Image> </Link></div>
+               <div className="home_part part1-one-6"> <Link to='product/category/two'> <Image src={img5} alt="image" className="iia" ></Image> </Link></div>
                
               
-               <div className="home_part part1-one-7"> <Link to='product/category/two'> <Image src={img1} alt="image" className="iia" ></Image></Link> </div>
+               <div className="home_part part1-one-7"> <Link to='product/category/two'> <Image src={img6} alt="image" className="iia" ></Image></Link> </div>
               
 
 
@@ -293,13 +296,13 @@ const HomeScreen = ({ match, history }) => {
                   )
                 } 
                 </div>
-            </section>
+            </section> 
 
-      <HomeScreenCategory title="cuisine" TopProduct={cuisineTopProduct} NouveauxProduct={cuisineNouveaux} PromosProduct={cuisinePromos} recommanderProduct={cuisineRecommander} history={history} category="two"/>
+      <HomeScreenCategory title="cuisine" TopProduct={cuisineTopProduct} NouveauxProduct={cuisineNouveaux} PromosProduct={cuisinePromos} recommanderProduct={cuisineRecommander} history={history} category="cuisine"/>
 
       
 
-      <HomeScreenCategory title="electroménager" TopProduct={electroTopProduct} NouveauxProduct={electroNouveaux} PromosProduct={electroPromos} recommanderProduct={ElectroRecommander} history={history} category="five"/>
+      <HomeScreenCategory title="electroménager" TopProduct={electroTopProduct} NouveauxProduct={electroNouveaux} PromosProduct={electroPromos} recommanderProduct={ElectroRecommander} history={history} category="electromenager"/>
 
       <HomeScreenCategory title="zrabi" TopProduct={zrabiTopProduct} NouveauxProduct={zrabiNouveaux} PromosProduct={zrabiPromos} recommanderProduct={zrabiRecommander} history={history} category="zrabi"/>
 

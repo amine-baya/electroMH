@@ -3,7 +3,7 @@ import Product from '../models/productModel.js'
 
 // @desc    Fetch all products 
 // @route   GET /api/products
-// @access  Public
+// @access  Public 
 const getProducts = asyncHandler(async (req, res) => { 
 
     const pageSize = 10   
@@ -28,17 +28,15 @@ const getProducts = asyncHandler(async (req, res) => {
 
 const getProductsFilter = asyncHandler(async (req, res) => {
 
-  const keyword = req.query.keyword
+  const keyword = req.query.keyword 
     ? {
       name: {
-        $regex: req.query.keyword,
+        $regex: req.query.keyword, 
         $options: 'i',
       },
     }
     : {}
 
-
-  const count = await Product.countDocuments({ ...keyword })
   const products = await Product.find({ ...keyword }).sort({ createdAt: -1 })
 
   res.json({ products })
@@ -112,10 +110,10 @@ const createProduct = asyncHandler(async (req, res) => {
     countInStock,
     recommander,
     
-  })
+  }) 
 
   const createdProduct = await product.save()
-  res.status(201).json(createdProduct)
+  res.status(201).json(createdProduct) 
 })
 
 
@@ -198,7 +196,7 @@ const createProductReview = asyncHandler(async (req, res) => {
     res.status(404)
     throw new Error('Product not found')
   }
-})
+})     
 
 
 // @desc    Get top rated products
@@ -210,7 +208,7 @@ const getTopProducts = asyncHandler(async (req, res) => {
   res.json(products)
 })
 
-// @desc    Get top rated products
+// @desc    Get new products
 // @route   GET /api/products/nouveaux
 // @access  Public
 

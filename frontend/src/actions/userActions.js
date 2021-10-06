@@ -71,7 +71,7 @@ export const logout = () => (dispatch) => {
     dispatch({ type: ORDER_LIST_MY_RESET })
     dispatch({ type: USER_LIST_RESET })
  
-}
+} 
 
 
 
@@ -268,7 +268,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
     dispatch({
       type: USER_UPDATE_REQUEST,
     })
-
+ 
     const {
       userLogin: { userInfo },
     } = getState()

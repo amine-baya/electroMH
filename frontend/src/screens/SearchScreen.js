@@ -8,7 +8,7 @@ import Loader from '../components/Loader'
 import './ProductCatageryScreenCss.css'
 
 const SearchScreen = ({ match, history }) => {
-    const pageNumber = match.params.pageNumber || 1
+    const pageNumber = match.params.pageNumber || 1  
     const keyword = match.params.keyword
     
     const dispatch = useDispatch()
@@ -22,10 +22,9 @@ const SearchScreen = ({ match, history }) => {
 
     useEffect(() => {
         
-        dispatch(listProducts(keyword, pageNumber))
+        dispatch(listProducts(keyword, pageNumber)) 
     }, [match, dispatch])
 
-    console.log(keyword);
 
     if (!keyword) {
         history.push('/')

@@ -7,13 +7,13 @@ import {protect,admin} from '../middleware/authMiddleware.js'
  
 router.route('/two').get(getProducts).post(protect, admin, createProduct)
 
-router.route('/').get(getProducts).post(protect, admin, createProduct)
+router.route('/').get(getProducts).post(protect, admin, createProduct) 
 
-router.route('/filter').get(getProductsFilter)
+router.route('/filter').get(getProductsFilter) 
 
-router.route('/nouveaux').get(getNouveaxProducts)
+router.route('/nouveaux').get(getNouveaxProducts) 
   
-router.route('/:id/reviews').post(protect, createProductReview)
+router.route('/:id/reviews').post(protect, createProductReview) 
  
 router.route('/top').get(getTopProducts) 
  

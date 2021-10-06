@@ -5,7 +5,7 @@ import {LinkContainer} from 'react-router-bootstrap'
 import {Navbar, Nav,Container, NavDropdown} from 'react-bootstrap'
 import SearchBox from '../SearchBox'
 import  './header.css'
-import { logout } from '../../actions/userActions';
+import { logout } from '../../actions/userActions';   
 import logo_header from '../../img/logo_header.png'
 
 const Header = ({history}) => {
