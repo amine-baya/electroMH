@@ -12,6 +12,7 @@ import { SubCategory2 } from '../../actions/productActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../../constants/productConstants' 
 import SwiperCore, { Navigation, Pagination, } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import ReactImageMagnify from 'react-image-magnify';
 import './ProductScreenCss.css'
 
 
@@ -93,106 +94,7 @@ const ProductScreen = ({match, history}) => {
 
   }
 
-/*************************************************************** */
-        
-       if (container.current != null) {
-           
-               container.current.addEventListener('mouseover', function () {
-                   imageZoom('featured')
 
-               })
-
-
-               function imageZoom(imgID) {
-                   let img = document.getElementById(imgID)
-                   let lens = document.getElementById('lens')
-
-                   lens.style.backgroundImage = `url( ${img.src} )`
-
-                   let ratio = 3
-
-                   lens.style.backgroundSize = (img.width * ratio) + 'px ' + (img.height * ratio) + 'px';
-
-                   img.addEventListener("mousemove", moveLens)
-                   lens.addEventListener("mousemove", moveLens)
-                   img.addEventListener("touchmove", moveLens)
-
-                   function moveLens() {
-                       /*
-                       Function sets sets position of lens over image and background image of lens
-                       1 - Get cursor position
-                       2 - Set top and left position using cursor position - lens width & height / 2
-                       3 - Set lens top/left positions based on cursor results
-                       4 - Set lens background position & invert
-                       5 - Set lens bounds
-                   
-                       */
-
-                       //1
-                       let pos = getCursor()
-                       //console.log('pos:', pos)
-
-                       //2
-                       let positionLeft = pos.x - (lens.offsetWidth / 2)
-                       let positionTop = pos.y - (lens.offsetHeight / 2)
-
-                       //5
-                       if (positionLeft < 0) {
-                           positionLeft = 0
-                       }
-
-                       if (positionTop < 0) {
-                           positionTop = 0
-                       }
-
-                       if (positionLeft > img.width - lens.offsetWidth / 3) {
-                           positionLeft = img.width - lens.offsetWidth / 3
-                       }
-
-                       if (positionTop > img.height - lens.offsetHeight / 3) {
-                           positionTop = img.height - lens.offsetHeight / 3
-                       }
-
-                       
-
-
-                       //3
-                       lens.style.left = positionLeft + 'px';
-                       lens.style.top = positionTop + 'px';
-
-                       //4
-                       lens.style.backgroundPosition = "-" + (pos.x * ratio) + 'px -' + (pos.y * ratio) + 'px'
-                   }
-
-                   function getCursor() {
-                       /* Function gets position of mouse in dom and bounds
-                        of image to know where mouse is over image when moved
-                       
-                       1 - set "e" to window events
-                       2 - Get bounds of image
-                       3 - set x to position of mouse on image using pageX/pageY - bounds.left/bounds.top
-                       4- Return x and y coordinates for mouse position on image
-                       
-                        */
-
-                       let e = window.event
-                       let bounds = img.getBoundingClientRect()
-
-                       //console.log('e:', e)
-                       //console.log('bounds:', bounds)
-                       let x = e.pageX - bounds.left
-                       let y = e.pageY - bounds.top
-                       x = x - window.pageXOffset;
-                       y = y - window.pageYOffset;
-
-                       return { 'x': x, 'y': y }
-                   }
-
-               }
-
-               imageZoom('featured')
-         
-       }
 
     const responsive = {
         0: {
@@ -213,6 +115,30 @@ const ProductScreen = ({match, history}) => {
         }
 
     }
+
+
+    /*************************************************************** */
+    const lightbox = document.createElement('div')
+    lightbox.id = 'lightbox'
+    document.body.appendChild(lightbox)
+
+    const light =(a)=> {
+    
+        lightbox.classList.add('active')
+        const img = document.createElement('img')
+        img.id = 'ija'
+        img.src = a
+        console.log(img);
+        lightbox.appendChild(img)
+    }
+
+    lightbox.addEventListener('click', e => {
+        let img = document.getElementById('ija');
+        lightbox.classList.remove('active')
+        lightbox.removeChild(img)
+
+        
+    })
     
 
     
@@ -257,10 +183,23 @@ const ProductScreen = ({match, history}) => {
                                         )}
                                     </Col>
                                     <Col md={5} lg={4} sm={10} xs={10} ref={container} >
-                                        <div id="img-zoom-container">
-                                            <div id="lens"></div>
-                                            <Image id='featured' src={product.image !== undefined && product.image[index]} alt={product.name} fluid />
-                                        </div>
+                                       
+                                       <ReactImageMagnify {...{
+                                                smallImage: {
+                                                    alt: 'product.name',
+                                                    isFluidWidth: true,
+                                                    src: product.image !== undefined && product.image[index]
+                                                },
+                                                largeImage: {
+                                                    src: product.image !== undefined && product.image[index], 
+                                                    width: 1200,
+                                                    height: 1800,           
+                                                }
+                                            }} />
+                                            
+                                            
+                                        
+                                         <span className="zoom_button" onClick={()=>  light(product.image[index])} ><i class="fas fa-arrows-alt"></i></span>
                                     </Col>
 
                    
@@ -268,7 +207,7 @@ const ProductScreen = ({match, history}) => {
                                 
                                 
                                 
-                            <Col  md={6} lg={4}> 
+                            <Col  md={6} lg={4} className="description_product_index"> 
                                 <ListGroup variant='flush'>
                                     <ListGroup.Item>
                                         <h3 className="flash_title" >{product.name} </h3>
