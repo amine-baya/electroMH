@@ -61,7 +61,7 @@ const HomeScreen = ({ match, history }) => {
 
 
   /*************TOP************* */
-  const topcuisine = topProducts.filter(el => el.category === 'two')
+  const topcuisine = topProducts.filter(el => el.category === 'cuisine')
   
   let cuisineTopProduct = []
   for (let index = 0; index < 8; index++) {
@@ -70,7 +70,7 @@ const HomeScreen = ({ match, history }) => {
     }
     
   }
-  const topelectro = topProducts.filter(el => el.category === 'five')
+  const topelectro = topProducts.filter(el => el.category === 'zrabi')
   
   let electroTopProduct = []
   for (let index = 0; index < 8; index++) {
@@ -80,7 +80,7 @@ const HomeScreen = ({ match, history }) => {
     
   }
 
-  const topzrabi = topProducts.filter(el => el.category === 'zrabi')
+  const topzrabi = topProducts.filter(el => el.category === 'valises')
   
   let zrabiTopProduct = []
   for (let index = 0; index < 8; index++) {
@@ -90,7 +90,7 @@ const HomeScreen = ({ match, history }) => {
     
   }
   /******************NOUVEAUX******************* */
-  const nouveauxcuisine = nouveauxProduct.filter(el => el.category === 'two')
+  const nouveauxcuisine = nouveauxProduct.filter(el => el.category === 'cuisine')
   
   let cuisineNouveaux = []
   
@@ -100,7 +100,7 @@ const HomeScreen = ({ match, history }) => {
     } 
   }
 
-  const nouveauxElectro = nouveauxProduct.filter(el => el.category === 'five')
+  const nouveauxElectro = nouveauxProduct.filter(el => el.category === 'zrabi')
   
   let electroNouveaux = []
   
@@ -111,7 +111,7 @@ const HomeScreen = ({ match, history }) => {
   }
 
   
-  const nouveauxZrabi = nouveauxProduct.filter(el => el.category === 'zrabi')
+  const nouveauxZrabi = nouveauxProduct.filter(el => el.category === 'valises')
   
   let zrabiNouveaux = []
   
@@ -125,7 +125,7 @@ const HomeScreen = ({ match, history }) => {
 
   const promos = products.filter(el => el.remise > 0)
   
-  const promoCuisine = promos.filter(el => el.category === 'two')
+  const promoCuisine = promos.filter(el => el.category === 'cuisine')
 
    let cuisinePromos = []
   
@@ -136,7 +136,7 @@ const HomeScreen = ({ match, history }) => {
     
   }
 
-  const promoElectro = promos.filter(el => el.category === 'five')
+  const promoElectro = promos.filter(el => el.category === 'zrabi')
 
    let electroPromos = []
   
@@ -147,7 +147,7 @@ const HomeScreen = ({ match, history }) => {
     
   }
 
-  const promoZrabi = promos.filter(el => el.category === 'zrabi')
+  const promoZrabi = promos.filter(el => el.category === 'valises')
 
    let zrabiPromos = []
   
@@ -162,7 +162,7 @@ const HomeScreen = ({ match, history }) => {
 
   const recommander = products.filter(el => el.recommander === true)
 
-  const recommanderCuisine = recommander.filter(el => el.category === 'two')
+  const recommanderCuisine = recommander.filter(el => el.category === 'cuisine')
 
   let cuisineRecommander = []
 
@@ -173,7 +173,7 @@ const HomeScreen = ({ match, history }) => {
 
   }
 
-  const recommanderElectro = recommander.filter(el => el.category === 'five')
+  const recommanderElectro = recommander.filter(el => el.category === 'zrabi')
 
   let ElectroRecommander = []
 
@@ -184,7 +184,7 @@ const HomeScreen = ({ match, history }) => {
 
   }
 
-  const recommanderZrabi = recommander.filter(el => el.category === 'zrabi')
+  const recommanderZrabi = recommander.filter(el => el.category === 'valises')
 
   let zrabiRecommander = [] 
 
