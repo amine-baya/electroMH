@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import {  Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from './Loader'
 import Message from './Message'
-import { listTopProducts } from '../actions/productActions'
 import axios from 'axios'
 import AddCarouselModal from './AddCarouselModel.js'
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from 'react-responsive-carousel'
+import { createProduct } from '../actions/productActions' 
+import img1 from  '../img/ex1.jpg'
+
 
 const ProductCarousel = () => {
   const userLogin = useSelector(state => state.userLogin)
@@ -17,11 +17,11 @@ const ProductCarousel = () => {
   const dispatch = useDispatch()
 
   const [image, setImage] = useState([])
-  const [data, setdata] = useState([])
-  const [show, setshow] = useState(false)
+  const [Data, setdata] = useState([])
+  const [show, setshow] = useState(false)  
 
   const productTopRated = useSelector((state) => state.productTopRated)
-  const { loading, error, products } = productTopRated 
+  const { loading, error} = productTopRated 
 
   const dispat = async () => {
     const config = {
@@ -29,17 +29,21 @@ const ProductCarousel = () => {
         'Content-Type': 'application/json',
       },
     }
-    const { data } = await axios.get('/api/upload/carousel', config)
+    const {data} = await axios.get('/api/upload/carousel', config)
 
-    setdata(data[data.length - 1].image)
+    console.log(data,data[0]);
+
+    if (data && data.length > 0) {
+       setdata(data[data.length - 1].image)
+    }else {
+       setdata([img1])
+    }
   }
 
   useEffect(() => {
-    //dispatch(listTopProducts())
-    
+   
     dispat()
 
-  
 
   }, [dispatch, show])
 
@@ -49,10 +53,8 @@ const ProductCarousel = () => {
     const formData = new FormData()
 
     for (let key of file) {
-      console.log(key);
-
+     
       formData.append('image', key)
-
     }
 
     try {
@@ -62,7 +64,7 @@ const ProductCarousel = () => {
         },
       }
 
-      const { data } = await axios.post('/api/upload/two', formData, config)
+      const { data } = await axios.post('/api/upload/carousel', formData, config)
 
       setImage(data.split(','))
 
@@ -72,19 +74,28 @@ const ProductCarousel = () => {
       
     }
   }
+      console.log(image);
+
   const create = async () => {
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    }
-    const { data } = await axios.post('/api/upload/carousel',{image}, config)
-
+    dispatch(
+      createProduct({
+            name: "carousel",
+            remise: 0,
+            price: 0,
+            image,
+            brand: "carousel",
+            category: "carousel",
+            description: "carousel",
+            type: "carousel",
+            countInStock: 0,
+            recommander: false
+        
+      })
+    )
  
+      console.log("hello")
 
-    setdata(data.image)
 
     setshow(false)
     }
@@ -96,10 +107,18 @@ const ProductCarousel = () => {
     {userInfo && userInfo.isAdmin && (<span className="carouse_edit" onClick={() => setshow(true)}><i class="far fa-edit"></i></span>)}
     <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} interval = {5000} >
       
-      {data != undefined && data.map((el, ind) => (
+      {image.length > 0 ? 
+        image.map((el, ind) => (
             
             <div>
-              <img src={el} alt={"sorry"} className="carousel_image"/>
+              <img src={el} alt="sorry" className="carousel_image"/>
+            </div>
+        
+      
+      )) : Data !== undefined && Data.map((el, ind) => (
+            
+            <div>
+              <img src={el} alt="sorry" className="carousel_image"/>
             </div>
         
       ))}
