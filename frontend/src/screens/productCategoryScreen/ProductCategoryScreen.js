@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { category } from '../actions/productActions'
-import Product from '../components/product/Product'
-import Message from '../components/Message'
-import Loader from '../components/Loader'
-import Paginate from '../components/Paginate'
-import './ProductCatageryScreenCss.css' 
+import { category } from '../../actions/productActions'
+import Product from '../../components/product/Product'
+import Message from '../../components/Message'
+import Loader from '../../components/Loader'
+import Paginate from '../../components/Paginate'
+import './ProductCategoryScreenCss.css' 
 
 
 
-const ProductcategoryScreen = ({match, history}) => {
+const ProductCategoryScreen = ({match, history}) => {
 
     const pageNumber = match.params.pageNumber || 1
 
@@ -25,7 +25,7 @@ const ProductcategoryScreen = ({match, history}) => {
   
     useEffect(() => {
         dispatch(category(match.params.category, pageNumber))
-    }, [match, dispatch])
+    }, [match, dispatch, pageNumber])
 
     const sortArray = [{ id: 0, name: "nouveaux" }, { id: 1, name: "Nom, A à Z" }, { id: 2, name: "Nom, Z à A" }, { id: 3, name: "Prix, croissant" }, { id: 4, name: "Prix, décroissant" }  ]
 
@@ -110,4 +110,4 @@ const ProductcategoryScreen = ({match, history}) => {
     )
 }
 
-export default ProductcategoryScreen
+export default ProductCategoryScreen

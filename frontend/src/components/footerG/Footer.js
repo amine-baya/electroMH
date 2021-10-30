@@ -1,8 +1,7 @@
 import React from 'react'
 import { Container} from 'react-bootstrap'
-
-
 import './Footer.css'
+
 const footer = () => {
     return (
         
@@ -31,9 +30,6 @@ const footer = () => {
 
                             <span className="facebook_logo"><i className="fab fa-instagram-square fa-2x"></i></span>
                         </div>
-
-                        
-
 
                     </div>
 

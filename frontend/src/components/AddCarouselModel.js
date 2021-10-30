@@ -1,8 +1,5 @@
 import React from 'react';
-import Input from './Input';
 import Modal from './Modal';
-import Message from './Message'
-import { useSelector } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 
 
@@ -13,11 +10,10 @@ const AddCategoryModal = (props) => {
         show,
         handleclose,
         modaltitle,
-        categoryName,
         uploadFileHandler,
         onSubmit
     } = props;
-    const categoryCreate = useSelector(state => state.categoryCreate);
+    
 
     return (
 
@@ -35,7 +31,7 @@ const AddCategoryModal = (props) => {
                         placeholder={`select Image`}
                         onChange={(e) => uploadFileHandler(e.target.files)}
                         className="form-control-sm"
-                    />
+                    /> 
 
                 </Col>
                 

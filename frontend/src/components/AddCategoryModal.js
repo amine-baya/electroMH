@@ -32,7 +32,7 @@ const AddCategoryModal = (props) => {
         >
             {categoryCreate.error && <Message variant='danger'>{categoryCreate.error}</Message>  }
 
-            {categoryListt.length != 0 ? (<Row>
+            {categoryListt.length !== 0 ? (<Row>
                 <Col>
                     <Input
                         value={categoryName}

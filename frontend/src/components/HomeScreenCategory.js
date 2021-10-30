@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Tabs, Tab } from 'react-bootstrap'
 import Product from './product/Product'
 import { Link } from 'react-router-dom'
@@ -41,7 +41,7 @@ const HomeScreenCategory = (props) => {
 
                                     {props.NouveauxProduct.map((product) => (
                                         
-                                        <div >
+                                        <div key={product._id} >
                                             <Product product={product} history={props.history} />
                                         </div>
                                         
@@ -56,7 +56,7 @@ const HomeScreenCategory = (props) => {
                                
                                     {props.PromosProduct.map((product) => (
                                        
-                                            <div key={product._id}>
+                                            <div  key={product._id}>
                                             <Product product={product} history={props.history} />
                                         </div>
                                         

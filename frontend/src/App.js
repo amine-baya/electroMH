@@ -5,30 +5,29 @@ import ScrollToTop from './components/ScrollToTop'
 import Header from './components/header/Header';
 import Navbar from "./components/navbar/Navbar.js";
 import Footer from './components/footerG/Footer';
-import HomeScreen from './screens/HomeScreen';
+import HomeScreen from './screens/homeScreen/HomeScreen';
 import ProductScreen from './screens/productScreen/ProductScreen';
-import CartScreen from './screens/CartScreen'
+import CartScreen from './screens/cartScreen/CartScreen'
 import LoginScreen from './screens/login/LoginScreen';
 import AvisScreen from './screens/avis/AvisScreen';
 import RegisterScreen from './screens/register/RegisterScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ShippingScreen from './screens/shippingScreen/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen';
-import PlaceOrderScreen from './screens/PlaceOrderScreen';
-import OrderScreen from './screens/OrderScreen';
+import PlaceOrderScreen from './screens/placeOrderScreen/PlaceOrderScreen';
+import OrderScreen from './screens/orderScreen/OrderScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen'; 
 import ProductListScreen from './screens/ProductListScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import ProductCreateScreen from './screens/ProductCreateScreen';
-import ProductCatageryScreen from './screens/ProductCatageryScreen';
+import ProductCategoryScreen from './screens/productCategoryScreen/ProductCategoryScreen';
 import ProductSubCategory from './screens/ProductSubCategory';
 import ProductSubCategory2 from './screens/ProductSubCategory2';
 import CategoryScreen from './screens/CategoryScreen';
 import SearchScreen from './screens/SearchScreen'
 import SocialMedia from './components/SocialMedia'
-
 
 
 
@@ -51,8 +50,8 @@ const App = () => {
           <Route path='/login' component={LoginScreen} />
           <Route path='/avis' component={AvisScreen} />
           <Route path='/product/:id' exact component={ProductScreen} /> 
-          <Route path='/product/category/:category' exact component={ProductCatageryScreen} />
-          <Route path='/product/category/:category/:pageNumber' exact component={ProductCatageryScreen} />
+          <Route path='/product/category/:category' exact component={ProductCategoryScreen} />
+          <Route path='/product/category/:category/:pageNumber' exact component={ProductCategoryScreen} />
           <Route path='/product/sub-category/:category' exact component={ProductSubCategory} />
           <Route path='/product/sub-category/:category/:pageNumber' exact component={ProductSubCategory} />
           <Route path='/product/sub-category2/:category' exact component={ProductSubCategory2} />
@@ -61,9 +60,7 @@ const App = () => {
           <Route path='/admin/userList' component={UserListScreen} exact />
           <Route path='/admin/user/:id/edit' component={UserEditScreen} />
           <Route path='/admin/userList/:pageNumber' component={UserListScreen} exact />
-
           <Route path='/admin/categoryList' component={CategoryScreen} />
-
           <Route path='/admin/productList' component={ProductListScreen} exact />
           <Route path='/admin/createproduct' component={ProductCreateScreen} exact />
           <Route path='/admin/productList/:pageNumber' component={ProductListScreen} exact />
@@ -80,14 +77,10 @@ const App = () => {
           <Route path='/admin/search/userList/:keyword/page/:pageNumber' component={UserListScreen} exact />
           <Route path='/admin/search/orderList/:keyword' component={OrderListScreen} exact />
           <Route path='/admin/search/orderList/:keyword/page/:pageNumber' component={OrderListScreen} exact />
-
-
-
-
           <Route path='/' component={HomeScreen} exact />
         </Container>
       </main>
-      <SocialMedia/>
+      <SocialMedia />
       <Footer />
     </Router>
   );

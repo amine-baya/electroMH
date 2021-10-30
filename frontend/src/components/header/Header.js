@@ -2,7 +2,7 @@ import React from 'react'
 import {Route} from 'react-router-dom' 
 import { useDispatch, useSelector } from "react-redux";
 import {LinkContainer} from 'react-router-bootstrap'
-import {Navbar, Nav,Container, NavDropdown} from 'react-bootstrap'
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
 import SearchBox from '../SearchBox'
 import  './header.css'
 import { logout } from '../../actions/userActions';   
@@ -18,9 +18,9 @@ const Header = ({history}) => {
 
     let cartItem
     if (userInfo) {
-        cartItem = cartItems.filter(cart => cart.user == userInfo._id);
+        cartItem = cartItems.filter(cart => cart.user === userInfo._id);
     } else {
-        cartItem = cartItems.filter(cart => cart.user == "");
+        cartItem = cartItems.filter(cart => cart.user === "");
     }
     
     const logoutHandler = () => {
@@ -33,7 +33,7 @@ const Header = ({history}) => {
             <Navbar  expand="lg" collapseOnSelect >
                 
                     <LinkContainer to="/">
-                            <span className="logo"> <img src={logo_header} className="header_logo"></img> </span>
+                            <span className="logo"> <img src={logo_header} className="header_logo" alt="logo"></img> </span>
                     </LinkContainer>
  
                         <Route render={({ history }) => <SearchBox history={history} dir={'search'} className={'d-none d-md-block'} />} />

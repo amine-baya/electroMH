@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
@@ -105,16 +106,7 @@ const ProductEditScreen = ({ match, history }) => {
       })
     )
   }
-  const createCategoryList = (categories, options = []) => {
-    for (let category of categories) {
-      options.push({ value: category._id, name: category.name });
-      if (category.children.length > 0) {
-        createCategoryList(category.children, options);
-      }
-    }
-
-    return options;
-  };
+  
   return (
     <>
       <Link to='/admin/productlist' className='btn btn-light my-3'>
@@ -277,6 +269,7 @@ const ProductEditScreen = ({ match, history }) => {
                       />
 
                       <Form.Check inline label="2" name="group1" type={type} id={`inline-${type}-2`}
+                        // eslint-disable-next-line react/jsx-no-duplicate-props
                         type='radio'
                         label='NON'
                         onChange={(e) => setRecommander(false)}

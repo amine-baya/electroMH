@@ -31,8 +31,6 @@ const ProductCarousel = () => {
     }
     const {data} = await axios.get('/api/upload/carousel', config)
 
-    console.log(data,data[0]);
-
     if (data && data.length > 0) {
        setdata(data[data.length - 1].image)
     }else {
@@ -74,8 +72,7 @@ const ProductCarousel = () => {
       
     }
   }
-      console.log(image);
-
+      
   const create = async () => {
 
     dispatch(
@@ -104,20 +101,20 @@ const ProductCarousel = () => {
   
 
   return loading ? (  <Loader /> ) : error ? ( <Message variant='danger'>{error}</Message>) : (<section className="carou">
-    {userInfo && userInfo.isAdmin && (<span className="carouse_edit" onClick={() => setshow(true)}><i class="far fa-edit"></i></span>)}
+    {userInfo && userInfo.isAdmin && (<span className="carouse_edit" onClick={() => setshow(true)}><i className="far fa-edit"></i></span>)}
     <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} interval = {5000} >
       
       {image.length > 0 ? 
         image.map((el, ind) => (
             
-            <div>
+            <div key={ind} >
               <img src={el} alt="sorry" className="carousel_image"/>
             </div>
         
       
       )) : Data !== undefined && Data.map((el, ind) => (
             
-            <div>
+            <div key={ind}>
               <img src={el} alt="sorry" className="carousel_image"/>
             </div>
         

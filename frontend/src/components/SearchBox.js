@@ -21,7 +21,7 @@ const SearchBox = (props) => {
         placeholder='Je cherche...'
       ></Form.Control>
       <Button type='submit'>
-        <i class="fas fa-search search_logo"></i>
+        <i className="fas fa-search search_logo"></i>
       </Button>
     </Form>
   )

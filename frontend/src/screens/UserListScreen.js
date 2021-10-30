@@ -13,6 +13,7 @@ const UserListScreen = ({ history, match }) => {
  
   const pageNumber = match.params.pageNumber || 1
   const keyword = match.params.keyword
+  
   const dispatch = useDispatch()
 
   const userList = useSelector((state) => state.userList)

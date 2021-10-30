@@ -121,7 +121,7 @@ const RegisterScreen = ({location, history}) => {
                         onBlur={(e) => e.target.value.trim() ? setbool4(true) : setbool4(false)}>
                     </input>
                 </div>
-                <Button type='submit' className='button' variant='primary'>{loading ? 'Chargement...' : 'Sing In'}</Button>
+                <Button type='submit' className='button' variant='primary'>{loading ? 'Chargement...' : 'Sign In'}</Button>
                 
             </form>
             <div className='img register'>

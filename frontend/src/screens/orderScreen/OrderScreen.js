@@ -4,11 +4,12 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Card,Button  } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
-import Loader from '../components/Loader'
-import {getOrderDetails,payOrder,deliverOrder} from '../actions/orderActions'
-import { ORDER_PAY_RESET, ORDER_DELIVER_RESET, ORDER_CREATE_RESET} from '../constants/orderConstants'
-import { CART_RESET_ITEM } from '../constants/cartConstants'
+import Message from '../../components/Message'
+import Loader from '../../components/Loader'
+// eslint-disable-next-line no-unused-vars
+import {getOrderDetails,payOrder,deliverOrder} from '../../actions/orderActions'
+import { ORDER_PAY_RESET, ORDER_DELIVER_RESET, ORDER_CREATE_RESET} from '../../constants/orderConstants'
+import { CART_RESET_ITEM } from '../../constants/cartConstants'
 import './OrderScreenCss.css'
 import {PDFExport} from '@progress/kendo-react-pdf'
 
@@ -16,6 +17,7 @@ import {PDFExport} from '@progress/kendo-react-pdf'
 const OrderScreen = ({ match , history }) => {
   const orderId = match.params.id
 
+  // eslint-disable-next-line no-unused-vars
   const [sdkReady, setSdkReady] = useState(false)
 
   const dispatch = useDispatch()
@@ -24,6 +26,7 @@ const OrderScreen = ({ match , history }) => {
   const { order, loading, error } = orderDetails
 
   const orderPay = useSelector((state) => state.orderPay)
+  // eslint-disable-next-line no-unused-vars
   const { loading: loadingPay, success: successPay } = orderPay
 
   const orderDeliver = useSelector((state) => state.orderDeliver)
@@ -67,10 +70,11 @@ useEffect(() => {
     }
   }, [dispatch, orderId, successPay, successDeliver ,order, history, userInfo])
 
+  /*
     const successPaymentHandler = (paymentResult) => {
-    console.log(paymentResult)
+    
     dispatch(payOrder(orderId, paymentResult))
-  }
+  }*/
   
   const deliverHandler = () => {
     dispatch(deliverOrder(order))

@@ -9,13 +9,8 @@ import Loader from '../components/Loader'
 import Paginate from '../components/Paginate'
 import { listOrders, deleteOrder } from '../actions/orderActions'
 
-
-
-
-
 const OrderListScreen = ({ history, match }  ) => {
 
- 
 
   const pageNumber = match.params.pageNumber || 1 
   const keyword = match.params.keyword 
@@ -44,7 +39,7 @@ const OrderListScreen = ({ history, match }  ) => {
     dispatch(listOrders(keyword, pageNumber))
 
   }, [dispatch, history, userInfo, pageNumber, keyword, successDelete])
-  console.log(Date());
+  
 
   const deleteHandler = (id) => {
     if (window.confirm('Are you sure')) {

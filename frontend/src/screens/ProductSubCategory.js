@@ -1,11 +1,10 @@
 import React, { useEffect, useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { SubCategory } from '../actions/productActions'
-import { Row, Col } from 'react-bootstrap'
 import Product from '../components/product/Product'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import './ProductCatageryScreenCss.css'
+import './productCategoryScreen/ProductCategoryScreenCss.css' 
 import Paginate from '../components/Paginate'
 
 const ProductSubCategory = ({ match, history}) => {
@@ -23,7 +22,7 @@ const ProductSubCategory = ({ match, history}) => {
     
     useEffect(() => {
         dispatch(SubCategory(match.params.category, pageNumber ))
-    }, [match, dispatch])
+    }, [match, dispatch, pageNumber])
 
     const sortArray = [{ id: 0, name: "nouveaux" }, { id: 1, name: "Nom, A à Z" }, { id: 2, name: "Nom, Z à A" }, { id: 3, name: "Prix, croissant" }, { id: 4, name: "Prix, décroissant" }]
 

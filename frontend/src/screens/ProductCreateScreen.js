@@ -52,7 +52,7 @@ const ProductCreateScreen = (props) => {
     dispatch(getAllCategory())
    
 
-  }, [dispatch, product, success]) 
+  }, [dispatch, product, props.history, success]) 
 
 
 
@@ -117,16 +117,7 @@ const ProductCreateScreen = (props) => {
     )
   }
 
-  const createCategoryList = (categories, options = []) => {
-    for (let category of categories) {
-      options.push({ value: category._id, name: category.name });
-      if (category.children.length > 0) {
-        createCategoryList(category.children, options);
-      }
-    }
-
-    return options;
-  };
+  
   console.log(isRecommander);
 
   return (
@@ -305,14 +296,18 @@ const ProductCreateScreen = (props) => {
                     <div key={`inline-${type}`} className="mb-3">
                       <Form.Check 
                       inline label="1" name="group1" type={type} id={`inline-${type}-1`}
+                        // eslint-disable-next-line react/jsx-no-duplicate-props
                         type='radio'
+                        // eslint-disable-next-line react/jsx-no-duplicate-props
                         label='OUI'
                         onChange={(e) => setRecommander(true)}
                       />
 
                       <Form.Check inline label="2" name="group1" type={type} id={`inline-${type}-2`}
                       
+                        // eslint-disable-next-line react/jsx-no-duplicate-props
                         type='radio'
+                        // eslint-disable-next-line react/jsx-no-duplicate-props
                         label='NON'
                        
                         onChange={(e) => setRecommander(false)}

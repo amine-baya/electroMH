@@ -11,8 +11,8 @@ import { listMyOrders } from '../actions/orderActions'
 const RegisterScreen = ({location, history}) => {
     const [name, setname] = useState('')
     const [email, setemail] = useState('')
-    const [password, setpassword] = useState('')
-    const [confirmPassword, setconfirmPassword] = useState('')
+    const [password] = useState('')
+    const [confirmPassword] = useState('')
     const [message, setmessage] = useState(null)
 
     const dispatch = useDispatch()
@@ -83,25 +83,7 @@ const RegisterScreen = ({location, history}) => {
                     </Form.Control>
                 </Form.Group>
 
-               {/*
-    <Form.Group controlId='password'>
-                    <Form.Label>password </Form.Label>
-                    <Form.Control type='password'
-                    placeholder='enter password'
-                    value={password}
-                    onChange={(e) =>setpassword(e.target.value)}>
-                    </Form.Control>
-                </Form.Group>
-
-                <Form.Group controlId='confirmPassword'>
-                    <Form.Label>Confirm password </Form.Label>
-                    <Form.Control type='password'
-                    placeholder='confirm password'
-                    value={confirmPassword}
-                    onChange={(e) =>setconfirmPassword(e.target.value)}>
-                    </Form.Control>
-                </Form.Group>
-               */} 
+     
                 <Button type='submit' variant='primary'>{ loading ?<Loader width='10px' height='10px'></Loader> : 'Modifier'  }</Button>
             </Form>
             </Col>
@@ -118,8 +100,7 @@ const RegisterScreen = ({location, history}) => {
                 <th>ID</th>
                 <th>DATE</th>
                 <th>TOTAL</th>
-                
-                    <th>liVRé</th>
+                <th>liVRé</th>
                 <th>details</th>
               </tr>
             </thead>

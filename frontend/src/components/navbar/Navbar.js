@@ -12,7 +12,7 @@ const Navbar = () => {
     const dispatch = useDispatch()
 
     const categoryList = useSelector((state) => state.categoryList);
-    const { loading, error, categories } = categoryList
+    const { categories } = categoryList
    
 
     const [isSidebarOpen, setisSidebarOpen] = useState(false)
@@ -63,22 +63,19 @@ const Navbar = () => {
 
     useEffect(() => {
         dispatch(getAllCategory())
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
 
-
-
-
         setcolumns('col-2')
 
-       const submenu = container.current;
+        const submenu = container.current;
 
         const spanpos = span.current;
 
         const subpos = submenu.getBoundingClientRect()
 
-       const  {center, top} = location;
+        const  {center, top} = location;
 
        submenu.style.left = `${center  }px`
 
@@ -149,9 +146,7 @@ const Navbar = () => {
                     submenu.style.top = `${top}px`
 
                     spanpos.style.left = `${50}%`
-                }
-
-                
+                } 
                 }
                 
                 if (window.innerWidth > 768 && window.innerWidth < 993 && window.innerWidth < 327 + center) {
@@ -159,12 +154,10 @@ const Navbar = () => {
                     spanpos.style.left = `${327 * 2 - (window.innerWidth - center) + 20}px`
 
                 }
-            
-
-            
+                   
         } 
 
-    }, [location])
+    }, [location, page.children.length])
     
 
     return (
@@ -178,8 +171,8 @@ const Navbar = () => {
                 </div>
                    
                 <ul className="nav-links"> 
-                    {categories.map((category) => (
-                            <li>
+                    {categories.map((category,index) => (
+                            <li key={index}>
                                 <LinkContainer to= {`/product/category/${category.slug}`}>
                                     <button className="link-btnn" onMouseOut={closeSubmenu} onMouseOver={displaySubmenu}>
                                     {category.name}
@@ -209,8 +202,8 @@ const Navbar = () => {
                                     <div className="sidebar-sublinks">
                                         {children.map((link, index) => {
                                             const { slug, name} = link
-                                            return (<>
-                                            <ul className='sub_category'>
+                                            return (
+                                            <ul className='sub_category' key={index}>
                                             <LinkContainer onClick={() => setisSidebarOpen(false)} to= {`/product/sub-category/${slug}`}>
                                                 <a className='navbar_subCategory' key={index} href={slug}>{name}</a>
                                             </LinkContainer>
@@ -218,7 +211,7 @@ const Navbar = () => {
                                                       link.children.map((el, index) => {
                                                           const { name, slug } = el
                                                           return (<>
-                                                        <li className="category-list">
+                                                        <li className="category-list" key={index}>
                                                         <LinkContainer onClick={() => setisSidebarOpen(false)} to= {`/product/sub-category2/${slug}`}>
                                                             <a key={index} href={slug}>{name}</a>
                                                             </LinkContainer>
@@ -226,8 +219,8 @@ const Navbar = () => {
                                                     </>)
                                                 })
                                             }
-                                            </ul>
-                                            </>)
+                                             </ul>
+                                            )
                                         })}
                                     </div>
                                 </article>
@@ -241,13 +234,13 @@ const Navbar = () => {
 
          <aside  className={`${isSubmenuOpen ? 'submenu show' : 'submenu'}`} ref={container} id="close" onMouseOver={openSubmenu2} onMouseOut={closeSubmenu}> 
             <LinkContainer to= {`/product/category/${page.slug}`}>
-                <a id="close" className="h4">{page.name}</a>
+                <a href={page.slug} id="close" className="h4">{page.name}</a>
             </LinkContainer>
             <div className={`submenu-center ${columns}`}>
                 {page.children.map((link, index) => {
                     const {name, slug} = link 
                     return (<>
-                        <ul className="sub_category">
+                        <ul className="sub_category" key={index}>
                         <LinkContainer to= {`/product/sub-category/${slug}`}>
                                 <a key={index} href={slug} className='navbar_subCategory a'>
                             {name}   
@@ -256,7 +249,7 @@ const Navbar = () => {
                         {link.children.map((el, index) => {
                             const { name, slug } = el
                             return (<>
-                                <li className="category-list">
+                                <li className="category-list" key={index}>
                                 <LinkContainer to= {`/product/sub-category2/${slug}`}>
                                     <a key={index} href={slug}>{name}</a>
                                     </LinkContainer>

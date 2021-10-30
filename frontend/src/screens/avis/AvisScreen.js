@@ -48,7 +48,7 @@ const AvisScreen = () => {
 
         setvalue(Avis.avis.reduce((acc, item) => item.rating + acc, 0) / userAvis.Avis.count || 1)
         
-    }, [dispatch, userAvis.Avis.count, createAvis ])
+    }, [dispatch, userAvis.Avis.count, createAvis, userAvis, Avis.avis])
 
 
     return (

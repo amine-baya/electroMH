@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
-import CheckoutSteps from '../components/CheckoutSteps'
-import { createOrder } from '../actions/orderActions'
+import Message from '../../components/Message'
+import CheckoutSteps from '../../components/CheckoutSteps'
+import { createOrder } from '../../actions/orderActions'
 import './PlaceOrderScreenCss.css'
 
 
@@ -23,9 +23,9 @@ const PlaceOrderScreen = ({ history }) => {
 
   let cartItem
   if (userInfo) {
-    cartItem = cart.cartItems.filter(cart => cart.user == userInfo._id);
+    cartItem = cart.cartItems.filter(cart => cart.user === userInfo._id);
   } else {
-    cartItem = cart.cartItems.filter(cart => cart.user == "");
+    cartItem = cart.cartItems.filter(cart => cart.user === "");
   }
 
   if (!cart.shippingAddress.address) {

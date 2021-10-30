@@ -79,7 +79,7 @@ const ProductScreen = ({match, history}) => {
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
     }
     
-  }, [dispatch, match, successProductReview])
+  }, [dispatch, history.location.search, match, successProductReview])
 
     const addToCartHandler = () => {
         
@@ -197,8 +197,6 @@ const ProductScreen = ({match, history}) => {
                                                 }
                                             }} />
                                             
-                                            
-                                        
                                          <span className="zoom_button" onClick={()=>  light(product.image[index])} ><i class="fas fa-arrows-alt"></i></span>
                                     </Col>
 
@@ -216,7 +214,7 @@ const ProductScreen = ({match, history}) => {
                                         <Rating  value={product.rating} text={`   ${product.numReviews} avis`} />
                                     </ListGroup.Item>
                                     <ListGroup.Item>
-                                            {product.remise ? <> <Card.Text as='h6' className='price-line' > {product.price != undefined && product.price.toFixed(2)} DT</Card.Text>
+                                            {product.remise ? <> <Card.Text as='h6' className='price-line' > {product.price !== undefined && product.price.toFixed(2)} DT</Card.Text>
                                                 <Card.Text as='h4' className='price'>{product.remise !== undefined && product.remise.toFixed(2)}DT</Card.Text>
                                             </> : <Card.Text as='h4' className='price'>{product.price !== undefined && product.price.toFixed(2)}DT</Card.Text>}
 
@@ -235,8 +233,8 @@ const ProductScreen = ({match, history}) => {
                                                 <Col>Prix:</Col>
                                                 <Col>
                                                         {product.remise ? <>
-                                                            <Card.Text as='h4' className='price'>{product.remise != undefined && product.remise.toFixed(2) }DT</Card.Text>
-                                                        </> : <Card.Text as='h4' className='price'>{product.price != undefined && product.price.toFixed(2)}DT</Card.Text>}
+                                                            <Card.Text as='h4' className='price'>{product.remise !== undefined && product.remise.toFixed(2) }DT</Card.Text>
+                                                        </> : <Card.Text as='h4' className='price'>{product.price !== undefined && product.price.toFixed(2)}DT</Card.Text>}
                                                 </Col>
 
                                             </Row>

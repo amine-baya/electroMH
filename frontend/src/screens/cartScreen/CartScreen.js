@@ -2,8 +2,8 @@ import React, {useEffect} from 'react'
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, ListGroup, Image, Form, Button, Card } from "react-bootstrap";
-import Message from "../components/Message.js";
-import { addToCart, removeFromCart } from "../actions/cartAction";
+import Message from "../../components/Message.js";
+import { addToCart, removeFromCart } from "../../actions/cartAction";
 import './CartScreenCss.css'
 
 const CartScreen = ({match, location, history}) => { 
@@ -29,9 +29,9 @@ const CartScreen = ({match, location, history}) => {
     }, [dispatch, productId, qty])
         let cartItem
     if (userInfo) {
-        cartItem = cartItems.filter(cart => cart.user == userInfo._id);
+        cartItem = cartItems.filter(cart => cart.user === userInfo._id);
     } else {
-        cartItem = cartItems.filter(cart => cart.user == "");
+        cartItem = cartItems.filter(cart => cart.user === "");
     }
 
     const removeFromCartHandler = (id) => { 

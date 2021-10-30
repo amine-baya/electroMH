@@ -21,7 +21,7 @@ const Product = (props) => {
 
             <div className="single-product-image-div">
                     <Link to={`/product/${props.product._id}?q=${props.product.subCategoryId2}`} >
-                <img src={props.product.image[0]} className='img' variant='top' /> 
+                    <img src={props.product.image[0]} className='img' variant='top' alt="produit"  /> 
             </Link>
             </div>
             </div>

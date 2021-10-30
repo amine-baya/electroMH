@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef} from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Message from '../../components/Message'
-import Loader from '../../components/Loader'
-import FormContainer from '../../components/FormContainer.js'
 import {login, facebook} from '../../actions/userActions.js'
 import GoogleLogin from 'react-google-login'
 import FacebookLogin from 'react-facebook-login'
@@ -35,6 +33,8 @@ const LoginScreen = ({location, history}) => {
     useEffect(() => {
         if (userInfo) {
             history.push(redirect) 
+            
+            // eslint-disable-next-line array-callback-return
             cartItems.map(cart => {
                 if (cart.user === "") {
                     cart.user = userInfo._id
@@ -137,7 +137,7 @@ const LoginScreen = ({location, history}) => {
             
             
         <div className='img'>
-            <img src={img}></img>
+            <img src={img} alt='login'></img>
         </div>
         </section>
     )

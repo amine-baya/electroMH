@@ -13,9 +13,9 @@ import AddCategoryModal from '../components/AddCategoryModal';
 import UpdateCategoriesModal from '../components/UpdateCategoryModal';
 
 
- 
- 
 const CategoryListScreen = () => {
+
+    
     const [ categoriesUpdate, setcategoriesUpdate] = useState({})
     const [show, setshow] = useState(false)
     const [show1, setshow1] = useState(false)

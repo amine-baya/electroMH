@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProducts } from '../actions/productActions'
-import { Row, Col } from 'react-bootstrap'
 import Product from '../components/product/Product'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import './ProductCatageryScreenCss.css'
+import './productCategoryScreen/ProductCategoryScreenCss.css' 
+
 
 const SearchScreen = ({ match, history }) => {
     const pageNumber = match.params.pageNumber || 1  
@@ -23,7 +23,8 @@ const SearchScreen = ({ match, history }) => {
     useEffect(() => {
         
         dispatch(listProducts(keyword, pageNumber)) 
-    }, [match, dispatch])
+        
+    }, [match, dispatch, keyword, pageNumber])
 
 
     if (!keyword) {

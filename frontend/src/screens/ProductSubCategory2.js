@@ -7,7 +7,8 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Paginate from '../components/Paginate'
 
-import './ProductCatageryScreenCss.css'
+import './productCategoryScreen/ProductCategoryScreenCss.css' 
+
 
 const ProductSubCategory = ({match, history}) => {
     const pageNumber = match.params.pageNumber || 1
@@ -50,7 +51,7 @@ const ProductSubCategory = ({match, history}) => {
     
     useEffect(() => {
         dispatch(SubCategory2(match.params.category, pageNumber))
-    }, [match, dispatch])
+    }, [match, dispatch, pageNumber])
 
     
     return (

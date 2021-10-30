@@ -17,18 +17,18 @@ const ShippingScreen = ({history}) => {
     const [postalCode,setPostalCode] = useState(shippingAddress.postalCode)
     const [country,setCountry] = useState(shippingAddress.country)
  
-  const [bool1, setbool1] = useState(false)
-  const [bool2, setbool2] = useState(false)
-  const [bool3, setbool3] = useState(false)
-  const [bool4, setbool4] = useState(false)
-  const dispatch = useDispatch() 
+    const [bool1, setbool1] = useState(false)
+    const [bool2, setbool2] = useState(false)
+    const [bool3, setbool3] = useState(false)
+    const [bool4, setbool4] = useState(false)
+    const dispatch = useDispatch() 
 
-  const submitHandler = (e) => {
-    e.preventDefault()
-    dispatch(saveShippingAddress({ address, city, postalCode, country }))
-    history.push('/placeorder') 
-    
-  }
+    const submitHandler = (e) => {
+      e.preventDefault()
+      dispatch(saveShippingAddress({ address, city, postalCode, country }))
+      history.push('/placeorder') 
+      
+    }
 
     return (
         <FormContainer>
