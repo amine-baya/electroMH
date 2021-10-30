@@ -26,7 +26,7 @@ const AvisScreen = () => {
     const { userInfo } = userLogin
 
     const deleteHandaller = async (id) => {
-        console.log(id);
+        
         const config = {
             headers: {
                 Authorization: `Bearer ${userInfo.token}`,
@@ -34,7 +34,7 @@ const AvisScreen = () => {
         }
         const { data } = await axios.delete(`/api/users/avis/${id}`, config)
 
-        console.log(data);
+        
 
         setmessage(data.message)
 
@@ -44,7 +44,7 @@ const AvisScreen = () => {
     useEffect(() => {
         dispatch(getAvis())
 
-        console.log(userAvis);
+        
 
         setvalue(Avis.avis.reduce((acc, item) => item.rating + acc, 0) / userAvis.Avis.count || 1)
         

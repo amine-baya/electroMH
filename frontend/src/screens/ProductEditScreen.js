@@ -214,7 +214,7 @@ const ProductEditScreen = ({ match, history }) => {
                   >
                     <option>select category</option>
                     {categoryList.categories.map(category => (
-                      //console.log(category)
+                      
                       category.children.length > 0 && category.children.map((child) => 
                       (
                         <option key={child._id} value={child.slug}>
@@ -234,7 +234,7 @@ const ProductEditScreen = ({ match, history }) => {
                   >
                     <option>select category</option>
                     {categoryList.categories.map(category => (
-                      //console.log(category)
+                     
                       category.children.length > 0 && category.children.map((child) =>
                       (
                         child.children.length > 0 && child.children.map(ch => (

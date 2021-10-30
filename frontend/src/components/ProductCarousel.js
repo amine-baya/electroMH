@@ -91,9 +91,7 @@ const ProductCarousel = () => {
       })
     )
  
-      console.log("hello")
-
-
+      
     setshow(false)
     }
 

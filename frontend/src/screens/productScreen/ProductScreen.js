@@ -128,7 +128,6 @@ const ProductScreen = ({match, history}) => {
         const img = document.createElement('img')
         img.id = 'ija'
         img.src = a
-        console.log(img);
         lightbox.appendChild(img)
     }
 

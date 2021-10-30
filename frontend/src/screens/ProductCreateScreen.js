@@ -63,13 +63,13 @@ const ProductCreateScreen = (props) => {
     const formData = new FormData()
 
     for ( let key of file) {
-      console.log(key);
+      
 
       formData.append('image', key)
       
     }
     
-    console.log(file);
+   
     setUploading(true) 
 
     try {
@@ -118,7 +118,7 @@ const ProductCreateScreen = (props) => {
   }
 
   
-  console.log(isRecommander);
+  
 
   return (
     <>
@@ -240,7 +240,7 @@ const ProductCreateScreen = (props) => {
                   >
                     <option>select category</option>
                     {categoryList.categories.map(category => (
-                      //console.log(category)
+                      
                       category.children.length > 0 && category.children.map((child) => 
                       (
                         <option key={child._id} value={child.slug}>
@@ -260,7 +260,7 @@ const ProductCreateScreen = (props) => {
                   >
                     <option>select category</option>
                     {categoryList.categories.map(category => (
-                      //console.log(category)
+                      
                       category.children.length > 0 && category.children.map((child) =>
                       (
                         child.children.length > 0 && child.children.map(ch => (

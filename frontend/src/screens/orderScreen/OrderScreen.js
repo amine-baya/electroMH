@@ -148,7 +148,7 @@ useEffect(() => {
 
                  <ListGroup.Item>
                    <h2 className='orderScreen_product_h2'>Mes Produits</h2>
-                   {console.log(order.orderItems)}
+                   
                    {order.orderItems.length === 0 ? (
                      <Message>Il n'ya pas de commande</Message>
                    ) : (

@@ -73,7 +73,7 @@ export const createCategory = (category) => async (dispatch, getState) => {
                 : error.message
         if (message === 'Not authorized, token failed') {
             //dispatch(logout())
-            console.log('aa');
+            console.log('Not authorized, token failed');
         }
         dispatch({
             type: ADD_NEW_CATEGORY_FAILURE,
@@ -151,7 +151,7 @@ export const deleteCategories = (id) => async (dispatch, getState) => {
                 : error.message
         if (message === 'Not authorized, token failed') {
             //dispatch(logout())
-            console.log('aa');
+            console.log('Not authorized, token failed');
         }
         dispatch({
             type: DELETE_CATEGORIES_FAILURE,

@@ -28,7 +28,7 @@ const LoginScreen = ({location, history}) => {
 
     const input = useRef(null)
 
-    console.log(password);
+    
 
     useEffect(() => {
         if (userInfo) {
@@ -43,9 +43,7 @@ const LoginScreen = ({location, history}) => {
             localStorage.setItem('cartItems', JSON.stringify(cartItems))
         }
 
-        if (true) {
-            console.log("hell");
-        }
+        
         
     }, [history, redirect, userInfo, cartItems]) 
 
@@ -61,7 +59,7 @@ const LoginScreen = ({location, history}) => {
 
         dispatch(facebook( name, email ))
     }
-    const componentClicked = () => console.log('mri9el') 
+    const componentClicked = () => console.log('pass') 
 
     const responseSuccesGoogle = (response) => {
         const name = response.profileObj.givenName,

@@ -109,7 +109,7 @@ const CategoryListScreen = () => {
 
     const create = () => {
 
-        console.log(categoryName, parentCategoryId);
+        
 
         dispatch(
             createCategory({

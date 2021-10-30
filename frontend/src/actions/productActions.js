@@ -115,7 +115,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
         : error.message
     if (message === 'Not authorized, token failed') {
       //dispatch(logout())
-      console.log('aa');
+      console.log('Not authorized, token failed');
     }
     dispatch({
       type: PRODUCT_DELETE_FAIL,
@@ -153,7 +153,7 @@ export const createProduct = (products) => async (dispatch, getState) => {
         : error.message
     if (message === 'Not authorized, token failed') {
          //dispatch(logout()) 
-      console.log('aa');
+      console.log('Not authorized, token failed');
     }
     dispatch({
       type: PRODUCT_CREATE_FAIL,
@@ -192,7 +192,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
         ? error.response.data.message
         : error.message
      //dispatch(logout())
-      console.log('aa');
+      console.log('Not authorized, token failed');
     dispatch({
       type: PRODUCT_UPDATE_FAIL,
       payload: message,
@@ -309,7 +309,7 @@ export const category = (category, pageNumber = '') => async (dispatch) => {
         ? error.response.data.message
         : error.message
     //dispatch(logout())
-    console.log('aa');
+    console.log('Not authorized, token failed');
     dispatch({
       type: PRODUCT_NAVBAR_FAIL,
       payload: message,
@@ -342,7 +342,7 @@ export const SubCategory = (category, pageNumber = '') => async (dispatch) => {
         ? error.response.data.message
         : error.message
     //dispatch(logout())
-    console.log('aa');
+    console.log('Not authorized, token failed');
     dispatch({
       type: PRODUCT_NAVBAR_FAIL,
       payload: message,
@@ -374,7 +374,7 @@ export const SubCategory2 = (category, pageNumber = '') => async (dispatch) => {
         ? error.response.data.message
         : error.message
     //dispatch(logout())
-    console.log('aa');
+    console.log('Not authorized, token failed');
     dispatch({
       type: PRODUCT_NAVBAR_FAIL,
       payload: message,

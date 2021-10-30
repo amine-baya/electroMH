@@ -73,7 +73,7 @@ const Navbar = () => {
 
         const spanpos = span.current;
 
-        const subpos = submenu.getBoundingClientRect()
+        //const subpos = submenu.getBoundingClientRect()
 
         const  {center, top} = location;
 
@@ -92,14 +92,14 @@ const Navbar = () => {
             }
 
             if (window.innerWidth < 319 + center) {
-                console.log(339 * 2 - (window.innerWidth - center)  - 20);
+               // console.log(339 * 2 - (window.innerWidth - center)  - 20);
                 submenu.style.left = `${window.innerWidth - 339}px`
                 spanpos.style.left = `${339 * 2 - (window.innerWidth - center) - 20}px`
                 
             }
            
             if (window.innerWidth > 768 && window.innerWidth < 993) {
-                console.log(subpos.width / 2, center);
+               // console.log(subpos.width / 2, center);
                 if (center - 251 < 0) {
                     submenu.style.left = `${center - (center - 251) + 10}px`
                     spanpos.style.left = `${center - 10}px`
@@ -176,7 +176,7 @@ const Navbar = () => {
                                 <LinkContainer to= {`/product/category/${category.slug}`}>
                                     <button className="link-btnn" onMouseOut={closeSubmenu} onMouseOver={displaySubmenu}>
                                     {category.name}
-                                    </button>
+                                    </button> 
                                 </LinkContainer>
 
                             </li>

@@ -49,7 +49,7 @@ const UserListScreen = ({ history, match }) => {
         </Col>
         <Col>
           <Route render={({ history }) => <SearchBox history={history} dir={'admin/search/userList'} noResult={'admin/userList'} className={'d-none d-md-block'} />} />
-          {console.log(history)}
+          
         </Col>
        
       </Row>
